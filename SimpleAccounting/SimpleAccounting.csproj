@@ -150,21 +150,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201410041356056_InitialCreate.cs" />
-    <Compile Include="Migrations\201410041356056_InitialCreate.Designer.cs">
-      <DependentUpon>201410041356056_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410041654304_Update-Database.cs" />
-    <Compile Include="Migrations\201410041654304_Update-Database.Designer.cs">
-      <DependentUpon>201410041654304_Update-Database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410041900553_migration1.cs" />
-    <Compile Include="Migrations\201410041900553_migration1.Designer.cs">
-      <DependentUpon>201410041900553_migration1.cs</DependentUpon>
+    <Compile Include="Migrations\201410051612265_Initial.cs" />
+    <Compile Include="Migrations\201410051612265_Initial.Designer.cs">
+      <DependentUpon>201410051612265_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Journal.cs" />
+    <Compile Include="Models\JournalEntry.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,17 +182,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201410041356056_InitialCreate.resx">
-      <DependentUpon>201410041356056_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410041654304_Update-Database.resx">
-      <DependentUpon>201410041654304_Update-Database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410041900553_migration1.resx">
-      <DependentUpon>201410041900553_migration1.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\Company\Register.cshtml" />
     <Content Include="Views\Company\AddUser.cshtml" />
@@ -207,6 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Accounting\ChartOfAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410051612265_Initial.resx">
+      <DependentUpon>201410051612265_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

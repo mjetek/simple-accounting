@@ -16,6 +16,9 @@ namespace SimpleAccounting.Models
         public bool Status { get; set; }
         public string Category { get; set; }
         public string Origin { get; set; }
-        public string Type { get; set; }
+        public int TypeId { get; set; }
+        public AccountType Type { get; set; }
+        [JsonIgnore]
+        public int CompanyId { get; set; }
     }
 }

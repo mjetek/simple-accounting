@@ -14,6 +14,10 @@ namespace SimpleAccounting.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<Journal> Journals { get; set; }
+        public DbSet<JournalEntry> JournalEntries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -7,13 +7,13 @@ namespace SimpleAccounting.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class UpdateDatabase : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201410041654304_Update-Database"; }
+            get { return "201410051612265_Initial"; }
         }
         
         string IMigrationMetadata.Source

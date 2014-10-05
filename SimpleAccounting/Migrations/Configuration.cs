@@ -1,5 +1,6 @@
 namespace SimpleAccounting.Migrations
 {
+    using SimpleAccounting.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -9,8 +10,7 @@ namespace SimpleAccounting.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "SimpleAccounting.DAL.AccountingContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SimpleAccounting.DAL.AccountingContext context)
@@ -27,6 +27,13 @@ namespace SimpleAccounting.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.AccountTypes.AddOrUpdate(
+                new AccountType { Name = "Assets" },
+                new AccountType { Name = "Capital" },
+                new AccountType { Name = "Payable" },
+                new AccountType { Name = "Receivable" },
+                new AccountType { Name = "Spend" }
+            );
         }
     }
 }
