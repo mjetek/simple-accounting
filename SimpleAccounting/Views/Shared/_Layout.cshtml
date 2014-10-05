@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+    <link rel="stylesheet" href="~/bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="~/Scripts/angular-toastr/angular-toastr.css">
+    @Styles.Render("~/Content/css")
+    <script src="~/bower_components/jquery/dist/jquery.js"></script>
+    <script src="~/bower_components/angularjs/angular.js"></script>
+    <script src="~/bower_components/angular-route/angular-route.js"></script>
+    <script src="~/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="~/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="~/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="~/bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="~/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="~/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script src="~/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="~/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/Scripts/angular-toastr/angular-toastr.js"></script>
+    <script src="~/Client/accountingApp/accountingApp.js"></script>
+    <script src="~/Client/accountingApp/services/CompanyService.js"></script>
+    <script src="~/Client/accountingApp/services/AccountService.js"></script>
+    <script src="~/Client/accountingApp/controllers/RegisterCompanyController.js"></script>
+    <script src="~/Client/accountingApp/controllers/AddUserController.js"></script>
+    <script src="~/Client/accountingApp/controllers/ChartOfAccountController.js"></script>
+</head>
+<body ng-app="accountingApp">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Accounting", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="fluid-container body-content">
+        @RenderBody()
+    </div>
+    <toastr></toastr>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

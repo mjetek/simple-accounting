@@ -1,0 +1,65 @@
+﻿@model SimpleAccounting.Models.User
+
+@{
+    Layout = null;
+}
+<form class="form-horizontal" name="form" role="form" ng-submit="vm.save()" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title">Add user</h3>
+    </div>
+    <div class="modal-body">
+
+        <fieldset>
+            @Html.AntiForgeryToken()
+
+            <div class="form-group has-feedback" ng-class="{'has-error': form.UserName.$dirty && form.UserName.$invalid, 'has-success': form.UserName.$dirty && form.UserName.$valid}">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-sm-2 control-label", })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.UserName, new { required = "", @class = "form-control", ng_model = "vm.user.userName" })
+                    <span class="glyphicon form-control-feedback" ng-show="form.UserName.$dirty" ng-class="{'glyphicon-remove': form.UserName.$invalid, 'glyphicon-ok': form.UserName.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.UserName.$dirty" for="form.UserName.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="required" class="field-validation-error">This field is required</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Email.$dirty && form.Email.$invalid, 'has-success': form.Email.$dirty && form.Email.$valid}">
+                @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    <input type="email" name="Email" class="form-control" ng-model="vm.user.email">
+                    <span class="glyphicon form-control-feedback" ng-show="form.Email.$dirty" ng-class="{'glyphicon-remove': form.Email.$invalid, 'glyphicon-ok': form.Email.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Email.$dirty" for="form.Email.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="email" class="field-validation-error">This is not a valid email</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Password.$dirty && form.Password.$invalid, 'has-success': form.Password.$dirty && form.Password.$valid}">
+                @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", ng_model = "vm.user.password", ng_pattern = @"/^(?=.*\d).{4,10}$/", required = "" })
+                    <span class="glyphicon form-control-feedback" ng-show="form.Password.$dirty" ng-class="{'glyphicon-remove': form.Password.$invalid, 'glyphicon-ok': form.Password.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Password.$dirty" for="form.Password.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="pattern" class="field-validation-error">Password must be between 4 and 10 characters long and include at least one numeric digit</ng-message>
+                    <ng-message when="required" class="field-validation-error">Password is required</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.confirm.$dirty && form.confirm.$invalid, 'has-success': form.confirm.$dirty && form.confirm.$valid}">
+                <label for="confirm" class="col-sm-2 control-label">Confirm</label>
+                <div class="col-sm-10">
+                    <input type="password" name="confirm" class="form-control" ng-model="vm.confirm" required ui-validate=" '$value==vm.user.password' "
+                           ui-validate-watch=" 'password' ">
+                    <span class="glyphicon form-control-feedback" ng-show="form.confirm.$dirty" ng-class="{'glyphicon-remove': form.confirm.$invalid, 'glyphicon-ok': form.confirm.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.confirm.$dirty" for="form.confirm.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="required" class="field-validation-error">Confirm password</ng-message>
+                    <ng-message when="validator" class="field-validation-error">Password doesn't match.</ng-message>
+                </ng-messages>
+            </div>
+        </fieldset>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Save</button>
+        <button class="btn" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</form>
