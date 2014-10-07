@@ -17,16 +17,16 @@ namespace SimpleAccounting
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute("ActionApi",
-              "api/{controller}/{action}",
-              null,
-              new { action = @"[a-zA-Z\-]+" }
+              "api/{controller}/{action}/{id}",
+              new { id = RouteParameter.Optional },
+              new { action = @"[a-zA-Z\-]+",  }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
         }
     }
 }

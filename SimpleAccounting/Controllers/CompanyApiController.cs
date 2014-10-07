@@ -1,14 +1,12 @@
 ﻿using SimpleAccounting.DAL;
 using SimpleAccounting.Models;
-using System;
-using System.Data.Entity;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web.Http;
 using System.Web.Helpers;
+using System.Web.Http;
 
 namespace SimpleAccounting.Controllers
 {
@@ -27,7 +25,6 @@ namespace SimpleAccounting.Controllers
         {
             if(ModelState.IsValid)
             {
-                company.Password = Crypto.HashPassword(company.Password);
                 dbContext.Companies.Add(company);
 
                 await dbContext.SaveChangesAsync();
@@ -48,7 +45,7 @@ namespace SimpleAccounting.Controllers
                 dbContext.Users.Add(user);
                 await dbContext.SaveChangesAsync();
 
-                return Request.CreateResponse(HttpStatusCode.OK, user);
+                return Request.CreateResponse(HttpStatusCode.OK, user.Id);
             }
 
             return Request.CreateErrorResponse(HttpStatusCode.BadGateway, ModelState);

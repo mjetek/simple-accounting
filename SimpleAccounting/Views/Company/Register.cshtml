@@ -2,109 +2,87 @@
 @{
     Layout = null;
 }
-
-<form class="form-horizontal" role="form" name="form" ng-submit="vm.register()" novalidate>
-    <fieldset>
-        <legend>Company registration</legend>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.Name.$dirty && form.Name.$invalid, 'has-success': form.Name.$dirty && form.Name.$valid}">
-            @Html.LabelFor(m => m.Name, new { @class="col-sm-2 control-label",  })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.Name, new { required="", @class = "form-control", ng_model="vm.company.name" })
-                <span class="glyphicon form-control-feedback" ng-show="form.Name.$dirty" ng-class="{'glyphicon-remove': form.Name.$invalid, 'glyphicon-ok': form.Name.$valid}"></span>
+<div class="container">
+    <form class="form-horizontal" role="form" name="form" ng-submit="vm.register()" novalidate>
+        <fieldset>
+            <legend>Company registration</legend>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Name.$dirty && form.Name.$invalid, 'has-success': form.Name.$dirty && form.Name.$valid}">
+                @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 control-label", })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Name, new { required = "", @class = "form-control", ng_model = "vm.company.name" })
+                    <span class="glyphicon form-control-feedback" ng-show="form.Name.$dirty" ng-class="{'glyphicon-remove': form.Name.$invalid, 'glyphicon-ok': form.Name.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Name.$dirty" for="form.Name.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="required" class="field-validation-error">This field is required</ng-message>
+                </ng-messages>
             </div>
-            <ng-messages ng-show="form.Name.$dirty" for="form.Name.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="required" class="field-validation-error">This field is required</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.Website.$dirty && form.Website.$invalid, 'has-success': form.Website.$dirty && form.Website.$valid}">
-            @Html.LabelFor(m => m.Website, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                <input type="url" name="Website" class="form-control" ng-model="vm.company.website">
-                <span class="glyphicon form-control-feedback" ng-show="form.Website.$dirty" ng-class="{'glyphicon-remove': form.Website.$invalid, 'glyphicon-ok': form.Website.$valid}"></span>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Website.$dirty && form.Website.$invalid, 'has-success': form.Website.$dirty && form.Website.$valid}">
+                @Html.LabelFor(m => m.Website, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    <input type="url" name="Website" class="form-control" ng-model="vm.company.website">
+                    <span class="glyphicon form-control-feedback" ng-show="form.Website.$dirty" ng-class="{'glyphicon-remove': form.Website.$invalid, 'glyphicon-ok': form.Website.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Website.$dirty" for="form.Website.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="url" class="field-validation-error">This is not valid url</ng-message>
+                </ng-messages>
             </div>
-            <ng-messages ng-show="form.Website.$dirty" for="form.Website.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="url" class="field-validation-error">This is not valid url</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.Phone.$dirty && form.Phone.$invalid, 'has-success': form.Phone.$dirty && form.Phone.$valid}">
-            @Html.LabelFor(m => m.Phone, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", ng_model="vm.company.phone", ui_mask="(999) 999-9999", ng_minlength="10" })
-                <span class="glyphicon form-control-feedback" ng-show="form.Phone.$dirty" ng-class="{'glyphicon-remove': form.Phone.$invalid, 'glyphicon-ok': form.Phone.$valid}"></span>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Phone.$dirty && form.Phone.$invalid, 'has-success': form.Phone.$dirty && form.Phone.$valid}">
+                @Html.LabelFor(m => m.Phone, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", ng_model = "vm.company.phone", ui_mask = "(999) 999-9999", ng_minlength = "10" })
+                    <span class="glyphicon form-control-feedback" ng-show="form.Phone.$dirty" ng-class="{'glyphicon-remove': form.Phone.$invalid, 'glyphicon-ok': form.Phone.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Phone.$dirty" for="form.Phone.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="minlength" class="field-validation-error">This is not a valid phone number</ng-message>
+                </ng-messages>
             </div>
-            <ng-messages ng-show="form.Phone.$dirty" for="form.Phone.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="minlength" class="field-validation-error">This is not a valid phone number</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.Email.$dirty && form.Email.$invalid, 'has-success': form.Email.$dirty && form.Email.$valid}">
-            @Html.LabelFor(m => m.Email, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                <input type="email" name="Email" class="form-control" ng-model="vm.company.email">
-                <span class="glyphicon form-control-feedback" ng-show="form.Email.$dirty" ng-class="{'glyphicon-remove': form.Email.$invalid, 'glyphicon-ok': form.Email.$valid}"></span>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.Email.$dirty && form.Email.$invalid, 'has-success': form.Email.$dirty && form.Email.$valid}">
+                @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    <input type="email" name="Email" class="form-control" ng-model="vm.company.email">
+                    <span class="glyphicon form-control-feedback" ng-show="form.Email.$dirty" ng-class="{'glyphicon-remove': form.Email.$invalid, 'glyphicon-ok': form.Email.$valid}"></span>
+                </div>
+                <ng-messages ng-show="form.Email.$dirty" for="form.Email.$error" class="col-sm-offset-2 col-sm-10">
+                    <ng-message when="email" class="field-validation-error">This is not a valid email</ng-message>
+                </ng-messages>
             </div>
-            <ng-messages ng-show="form.Email.$dirty" for="form.Email.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="email" class="field-validation-error">This is not a valid email</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.Password.$dirty && form.Password.$invalid, 'has-success': form.Password.$dirty && form.Password.$valid}">
-            @Html.LabelFor(m => m.Password, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", ng_model="vm.company.password", ng_pattern=@"/^(?=.*\d).{4,10}$/", required="" })
-                <span class="glyphicon form-control-feedback" ng-show="form.Password.$dirty" ng-class="{'glyphicon-remove': form.Password.$invalid, 'glyphicon-ok': form.Password.$valid}"></span>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", ng_model = "vm.company.address" })
+                </div>
             </div>
-            <ng-messages ng-show="form.Password.$dirty" for="form.Password.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="pattern" class="field-validation-error">Password must be between 4 and 10 characters long and include at least one numeric digit</ng-message>
-                <ng-message when="required" class="field-validation-error">Password is required</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group has-feedback" ng-class="{'has-error': form.confirm.$dirty && form.confirm.$invalid, 'has-success': form.confirm.$dirty && form.confirm.$valid}">
-            <label for="confirm" class="col-sm-2 control-label">Confirm</label>
-            <div class="col-sm-10">
-                <input type="password" name="confirm" class="form-control" ng-model="vm.confirm" required ui-validate=" '$value==vm.company.password' "
-                       ui-validate-watch=" 'password' ">
-                <span class="glyphicon form-control-feedback" ng-show="form.confirm.$dirty" ng-class="{'glyphicon-remove': form.confirm.$invalid, 'glyphicon-ok': form.confirm.$valid}"></span>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address2, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Address2, new { @class = "form-control", ng_model = "vm.company.address2" })
+                </div>
             </div>
-            <ng-messages ng-show="form.confirm.$dirty" for="form.confirm.$error" class="col-sm-offset-2 col-sm-10">
-                <ng-message when="required" class="field-validation-error">Confirm password</ng-message>
-                <ng-message when="validator" class="field-validation-error">Password doesn't match.</ng-message>
-            </ng-messages>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Address, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", ng_model="vm.company.address" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.City, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", ng_model = "vm.company.city" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Address2, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.Address2, new { @class = "form-control", ng_model="vm.company.address2" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.State, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.State, new { @class = "form-control", ng_model = "company.state" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.City, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.City, new { @class = "form-control", ng_model="vm.company.city" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Country, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Country, new { @class = "form-control", ng_model = "company.country" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.State, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.State, new { @class = "form-control", ng_model="company.state" })
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Save</button>
+                    <button type="button" class="btn" ng-click="vm.cancel()">Cancel</button>
+                    <button type="button" class="btn" ng-show="vm.company.id" ng-click="vm.addUser()">Add user</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Country, new { @class="col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.Country, new { @class = "form-control", ng_model="company.country" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Save</button>
-                <button type="button" class="btn" ng-click="vm.cancel()">Cancel</button>
-                <button type="button" class="btn" ng-show="vm.company.id" ng-click="vm.addUser()">Add user</button>
-            </div>
-        </div>
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>

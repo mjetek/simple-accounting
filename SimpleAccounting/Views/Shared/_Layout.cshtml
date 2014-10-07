@@ -38,11 +38,47 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Accounting", "Index", "Home", null, new { @class = "navbar-brand" })
+                <a href="#" class="navbar-brand">Accounting</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Operation <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Journal voucher</a></li>
+                            <li><a href="#">Asset managment</a></li>
+                            <li><a href="#">Posting transaction</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Trial balance</a></li>
+                            <li><a href="#">Bad transaction</a></li>
+                            <li><a href="#">Daily transaction</a></li>
+                            <li><a href="#">Loss and profit</a></li>
+                            <li><a href="#">Balance sheet</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#/chart-of-account">Chart of account</a></li>
+                            <li><a href="#">Mapping account</a></li>
+                            <li><a href="#">Financial periods</a></li>
+                            <li><a href="#">Opening balance</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Company info</a></li>
+                            <li><a href="#">Users</a></li>
+                            <li><a href="#">Change password</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

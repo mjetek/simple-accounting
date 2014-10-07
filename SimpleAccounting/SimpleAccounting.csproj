@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountingController.cs" />
+    <Compile Include="Controllers\AccountsApiController.cs" />
     <Compile Include="Controllers\CompanyApiController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -153,6 +154,10 @@
     <Compile Include="Migrations\201410051612265_Initial.cs" />
     <Compile Include="Migrations\201410051612265_Initial.Designer.cs">
       <DependentUpon>201410051612265_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410071201301_User-IsAdmin.cs" />
+    <Compile Include="Migrations\201410071201301_User-IsAdmin.Designer.cs">
+      <DependentUpon>201410071201301_User-IsAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -196,6 +201,12 @@
     <EmbeddedResource Include="Migrations\201410051612265_Initial.resx">
       <DependentUpon>201410051612265_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410071201301_User-IsAdmin.resx">
+      <DependentUpon>201410071201301_User-IsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\t2.micro.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

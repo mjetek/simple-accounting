@@ -55,6 +55,15 @@
                     <ng-message when="validator" class="field-validation-error">Password doesn't match.</ng-message>
                 </ng-messages>
             </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsAdmin" ng-model="vm.user.isAdmin"> Is Admin
+                        </label>
+                    </div>
+                </div>
+            </div>
         </fieldset>
 
     </div>
